@@ -1,5 +1,5 @@
-Microservice Consul Sample
-===================
+Microservice Kubernetes Sample
+=====================
 
 This sample is like the sample for my Microservices Book
  ([English](http://microservices-book.com/) /
