@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	  layout:decorator="layout">
+<head>
+	<title>Item : Search</title>
+</head>
+<body>
+<h1 layout:fragment="header">Item : Search</h1>
+<div layout:fragment="content" class="container">
+	<form action="searchByName.html" method="get" role="form">
+		<div class="row">
+			<div >
+				<label for="query">Search for Item by Name</label>
+			</div>
+			<div >
+				<input type="text" id="query" name="query" />
+			</div>
+		</div>
+		<div class="row">
+			<button type="submit" name="submit" >Submit</button>
+		</div>
+	</form>
+</div>
+</body>
+</html>

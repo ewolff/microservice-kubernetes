@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Layout</title>
+<link rel="stylesheet"
+	href="./webjars/bootstrap/3.3.6/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="./webjars/bootstrap/3.3.6/css/bootstrap-theme.min.css" />
+<style type="text/css">
+    .navbar ul { list-style: none; display: inline-block; padding: 0;}
+    .navbar ul li { display: inline-block; padding-right: .5em; }
+</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="navbar">
+			<ul class="navbar-inner">
+				<li><a class="brand" href="/">Home</a></li>
+				<li><a class="brand" href=".">List</a></li>
+			</ul>
+		</div>
+		<h1 layout:fragment="header">Layout</h1>
+		<div layout:fragment="content">Fake content</div>
+	</div>
+	<script src="./webjars/bootstrap/3.3.6/js/bootstrap.min.js" />
+</body>
+</html>
