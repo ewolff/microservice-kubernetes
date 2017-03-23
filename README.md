@@ -9,7 +9,7 @@ This sample is like the sample for my Microservices Book
 However, this demo uses [Kubernetes](https://kubernetes.io/) as Docker
 environment. Kubernetes also support service discovery and load
 balancing. An Apache httpd as a reverse proxy routes the calls to the
-services and as a load balancer.
+services.
 
 This project creates a complete micro service demo system in Docker
 containers. The services are implemented in Java using Spring and
