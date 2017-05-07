@@ -101,7 +101,9 @@ balancing. To actually view the services:
   server in the web browser. Notice how the service was bound to a
   port on the host Minikube runs on.
 
-
+The service type is `LoadBalancer`. This should actually connect the
+service to an external load balancer. This does not work on minikube
+so it can only be accessed at a specific port on the minikube host.
 
 Apache HTTP Load Balancer
 ------------------------
