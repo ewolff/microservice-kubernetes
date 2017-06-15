@@ -105,6 +105,8 @@ The service type is `LoadBalancer`. This should actually connect the
 service to an external load balancer. This does not work on minikube
 so it can only be accessed at a specific port on the minikube host.
 
+* To remove all services and deployments tun `remove-kubernetes.sh`.
+
 Apache HTTP Load Balancer
 ------------------------
 
