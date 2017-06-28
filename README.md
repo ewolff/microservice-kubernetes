@@ -83,7 +83,7 @@ To run the system on Kubernetes:
 * If your Set the environment variable `DOCKER_ACCOUNT` to the name of the
 account you created.
 
-* Run `kubernets-deploy.sh` in the directory `microservice-kubernetes-demo` .
+* Run `kubernetes-deploy.sh` in the directory `microservice-kubernetes-demo` .
 
 That deploys the images. It creates Pods. Pods might contain one or
 many Docker containers - in this case each Pod contains just one
