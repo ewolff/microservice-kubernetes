@@ -120,7 +120,7 @@ Load balancing is left to Kubernetes.
 To configure this Apache HTTP needs to get all registered services from
 Kubernetes. It just uses DNS for that.
 
-Please refer to the subdirectory `microservice-kubernetes-demo/apache` to see how this works.
+Please refer to the subdirectory [microservice-kubernetes-demo/apache](microservice-kubernetes-demo/apache/) to see how this works.
 
 
 Remarks on the Code
@@ -128,20 +128,19 @@ Remarks on the Code
 
 The microservices are:
 
-- microservice-consul-demo-catalog is the application to take care of items.
-- microserivce-consul-demo-customer is responsible for customers.
-- microservice-consul-demo-order does order processing. It uses
-  microservice-demo-catalog and microservice-demo-customer. Ribbon is
-  used for load balancing and Hystrix for resilience.
-
+- [microservice-kubernetes-demo-catalog](microservice-kubernetes-demo/microservice-kubernetes-demo-catalog) is the application to take care of items.
+- [microservice-kubernetes-demo-customer](microservice-kubernetes-demo/microservice-kubernetes-demo-customer) is responsible for customers.
+- [microservice-kubernetes-demo-order](microservice-kubernetes-demo/microservice-kubernetes-demo-order) does order processing. It uses
+  microservice-kubernetes-demo-catalog and microservice-kubernetes-demo-customer.
+  Hystrix is used for resilience.
 
 The microservices have a Java main application in `src/test/java` to
 run them stand alone. `microservice-demo-order` uses a stub for the
 other services then. Also there are tests that use _consumer-driven
 contracts_. That is why it is ensured that the services provide the
 correct interface. These CDC tests are used in microservice-demo-order
-to verify the stubs. In `microservice-demo-customer` and
-`microserivce-demo-catalog` they are used to verify the implemented
+to verify the stubs. In `microservice-kubernetes-demo-customer` and
+`microserivce-kubernetes-demo-catalog` they are used to verify the implemented
 REST services.
 
 Note that the code has no dependencies on Kubernetes. Only Spring
