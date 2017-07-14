@@ -79,7 +79,7 @@ public class CatalogClient {
 	}
 
 	private String catalogURL() {
-		String url = String.format("http://%s:%s/catalog", catalogServiceHost, catalogServicePort);
+		String url = String.format("http://%s:%s/catalog/", catalogServiceHost, catalogServicePort);
 		log.trace("Catalog: URL {} ", url);
 		return url;
 	}
