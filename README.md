@@ -134,6 +134,13 @@ The microservices are:
   microservice-kubernetes-demo-catalog and microservice-kubernetes-demo-customer.
   Hystrix is used for resilience.
 
+The microservices use REST to communicate to each other.
+See e.g. [CatalogClient](microservice-kubernetes-demo/microservice-kubernetes-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java) .
+The hostname is configurable to allow tests with stubs.
+The default is `catalog` which works with Kubernetes.
+Other microservices are found using Kubernetes built-in DNS.
+Kubernetes does the load balancing on the IP level.
+
 The microservices have a Java main application in `src/test/java` to
 run them stand alone. `microservice-demo-order` uses a stub for the
 other services then. Also there are tests that use _consumer-driven
