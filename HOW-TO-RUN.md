@@ -195,6 +195,78 @@ Session Affinity:	None
 Events:			<none>
 ```
 
+* You can also get a list of the pods:
+
+```
+[~/microservice-kubernetes/microservice-kubernetes-demo]kubectl get pods
+NAME                                READY     STATUS    RESTARTS   AGE
+apache-3412280829-k5z5p             1/1       Running   0          2m
+catalog-269679894-60dr0             1/1       Running   0          2m
+customer-1984516559-1ffjk           1/1       Running   0          2m
+hystrix-dashboard-859915717-f0sxg   1/1       Running   0          2m
+order-2204540131-nks5s              1/1       Running   0          2m
+```
+
+* ...and you can see the logs of a pod:
+
+```
+[wolff@TeraMacBook:~/microservice-kubernetes/microservice-kubernetes-demo]kubectl logs catalog-269679894-60dr0 
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.4.5.RELEASE)
+...
+2017-09-08 08:11:06.128  INFO 7 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-09-08 08:11:06.158  INFO 7 --- [           main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 0
+2017-09-08 08:11:06.746  INFO 7 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-09-08 08:11:06.803  INFO 7 --- [           main] c.e.microservice.catalog.CatalogApp      : Started CatalogApp in 53.532 seconds (JVM running for 54.296)
+```
+
+* You can also run commands in a pod:
+
+```
+[wolff@TeraMacBook:~/microservice-kubernetes/microservice-kubernetes-demo]kubectl exec catalog-269679894-60dr0  /bin/ls
+bin
+dev
+etc
+home
+lib
+lib64
+media
+microservice-kubernetes-demo-catalog-0.0.1-SNAPSHOT.jar
+mnt
+proc
+root
+run
+sbin
+srv
+sys
+tmp
+usr
+var
+```
+
+* You can even open a shell in a pod:
+
+```
+[wolff@TeraMacBook:~/microservice-kubernetes/microservice-kubernetes-demo]kubectl exec catalog-269679894-60dr0  -it /bin/sh
+/ # ls
+bin                                                      proc
+dev                                                      root
+etc                                                      run
+home                                                     sbin
+lib                                                      srv
+lib64                                                    sys
+media                                                    tmp
+microservice-kubernetes-demo-catalog-0.0.1-SNAPSHOT.jar  usr
+mnt                                                      var
+/ # 
+```
+
 * Run `minikube service apache` to open the web page of the Apache httpd
   server in the web browser. Notice how the service was bound to a
   port on the host Minikube runs on.
