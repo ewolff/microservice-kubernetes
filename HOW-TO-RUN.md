@@ -15,7 +15,7 @@ for developer environments.
   is the command line interface for Kubernetes.
 
 
-## Build the Docker images
+## Build the Docker images (optional)
 
 This step is *optional*. There are Docker images on the public Docker
 Hub that are used if you do not build your own.
@@ -151,9 +151,8 @@ service "hystrix-dashboard" exposed
 ```
 
 That deploys the images. It creates Pods. Pods might contain one or
-many Docker containers - in this case each Pod contains just one
-Docker container. The deployment takes care of the Pods -
-i.e. it starts new Pods if a Pod crashes.
+many Docker containers. In this case each Pod contains just one
+Docker container.
 
 Also services are created. Services have a clusterwide unique IP
 adress and a DNS entry. Service can use many Pods to do load
@@ -173,9 +172,9 @@ order               10.0.0.21    <pending>     8080:30616/TCP   45s
 ```
 
 
-* Run `kubectl describe services`for more
+* Run `kubectl describe services` for more
   details. This also works for pods (`kubectl describe pods`) and
-  deployments (`kubectl describe deployments`.)
+  deployments (`kubectl describe deployments`).
 
 ```
 [~/microservice-kubernetes/microservice-kubernetes-demo]kubectl describe services
@@ -275,7 +274,7 @@ The service type is `LoadBalancer`. This should actually connect the
 service to an external load balancer. This does not work on minikube
 so it can only be accessed at a specific port on the minikube host.
 
-* To remove all services and deployments tun `kubernetes-remove.sh`:
+* To remove all services and deployments run `kubernetes-remove.sh`:
 
 ```
 [~/microservice-kubernetes/microservice-kubernetes-demo]./kubernetes-remove.sh 
