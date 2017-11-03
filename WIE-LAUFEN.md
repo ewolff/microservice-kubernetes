@@ -214,7 +214,7 @@ order-2204540131-nks5s              1/1       Running   0          2m
 * ...und du kannst die Logs eines Pods sehen:
 
 ```
-[wolff@TeraMacBook:~/microservice-kubernetes/microservice-kubernetes-demo]kubectl logs catalog-269679894-60dr0 
+[~/microservice-kubernetes/microservice-kubernetes-demo]kubectl logs catalog-269679894-60dr0 
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -234,7 +234,7 @@ order-2204540131-nks5s              1/1       Running   0          2m
 * Außerdem kannst du ein Kommando in einem Pod ausführen:
 
 ```
-[wolff@TeraMacBook:~/microservice-kubernetes/microservice-kubernetes-demo]kubectl exec catalog-269679894-60dr0  /bin/ls
+[~/microservice-kubernetes/microservice-kubernetes-demo]kubectl exec catalog-269679894-60dr0  /bin/ls
 bin
 dev
 etc
@@ -258,7 +258,7 @@ var
 * Und du kannst eine Shell in einem Pod starten:
 
 ```
-[wolff@TeraMacBook:~/microservice-kubernetes/microservice-kubernetes-demo]kubectl exec catalog-269679894-60dr0  -it /bin/sh
+[~/microservice-kubernetes/microservice-kubernetes-demo]kubectl exec catalog-269679894-60dr0  -it /bin/sh
 / # ls
 bin                                                      proc
 dev                                                      root
@@ -298,3 +298,5 @@ deployment "customer" deleted
 deployment "order" deleted
 deployment "hystrix-dashboard" deleted
 ```
+
+Dieses Skript muss laufen, bevor eine neue Version der Pods deployt werden kann.
