@@ -81,8 +81,10 @@ images and upload them to the public Docker Hub:
 * Create an account at the public
 [Docker Hub](https://hub.docker.com/).
 
-* Set the environment variable `DOCKER_ACCOUNT` to the name of the
-account you just created.
+* Log in to your Docker Hub account by entering `docker login` on the command
+line.
+
+* Set the environment variable `DOCKER_ACCOUNT` to the name of the account.
 
 * Run `docker-build.sh` in the directory
 `microservice-kubernetes-demo`. It builds the images and uploads them to the

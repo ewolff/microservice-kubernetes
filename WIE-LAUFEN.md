@@ -94,8 +94,10 @@ Images zu erstellen und sie in den öffentlichen Docker Hub hochzuladen:
 * Erstelle dir einen Account im öffentlichen
 [Docker Hub](https://hub.docker.com/).
 
-* Weise die Umgebungsvariable `DOCKER_ACCOUNT` den Namen des Accounts
-zu, den du gerade erzeugt hast.
+* Logge dich auf der Kommandozeile via `docker login` in deinen erstellten
+Docker Hub Account ein.
+
+* Weise die Umgebungsvariable `DOCKER_ACCOUNT` den Namen des Accounts zu.
 
 * Starte `docker-build.sh` im Verzeichnis
 `microservice-kubernetes-demo`. Es erzeugt die Docker Images und lädt
