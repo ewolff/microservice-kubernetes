@@ -9,9 +9,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -69,7 +69,7 @@ public class CatalogWebIntegrationTest {
 		String body = getForMediaType(String.class, MediaType.TEXT_HTML, url);
 
 		assertThat(body, containsString("<form"));
-		assertThat(body, containsString("<div>"));
+		assertThat(body, containsString("<div"));
 	}
 
 	@Test
