@@ -164,6 +164,14 @@ deployment "hystrix-dashboard" created
 service "hystrix-dashboard" exposed
 ```
 
+Die Alternative zu dem Skript ist der Befehl `kubectl apply -f
+microservices.yaml` . Die Datei `microservices.yaml` enthält die
+Definitionen der Services und Deployments. `kubectl` erzeugt dann die
+Deployments und Services, falls sie noch nicht existieren. Die
+YAML-Datei nutzt die Images vom Docker Account `ewolff`. Wenn du einen
+anderen Docker Account nutzen willst, musst du das YAML entsprechend
+editieren.
+
 Das Skript deployt die Images und erzeugt die Pods. Pods können einen
 oder mehrere Docker Container enthalten. In diesem Beispiel enthält
 jeder Pod nur einen Docker container.

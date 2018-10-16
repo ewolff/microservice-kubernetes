@@ -148,6 +148,13 @@ deployment "hystrix-dashboard" created
 service "hystrix-dashboard" exposed
 ```
 
+An alternative is to use the command `kubectl apply -f
+microservices.yaml` . This command takes the description of the
+services and deployments from the file `microservices.yaml` and
+creates them if they do not already exist. The YAML uses the images
+from the Docker Hub account `ewolff`. You will need to modify the YAML
+if you want to use different images.
+
 That deploys the images. It creates Pods. Pods might contain one or
 many Docker containers. In this case each Pod contains just one
 Docker container.
