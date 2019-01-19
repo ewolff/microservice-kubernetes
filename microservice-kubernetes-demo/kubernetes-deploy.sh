@@ -10,5 +10,3 @@ kubectl run customer --image=docker.io/$DOCKER_ACCOUNT/microservice-kubernetes-d
 kubectl expose deployment/customer --type="LoadBalancer" --port 8080
 kubectl run order --image=docker.io/$DOCKER_ACCOUNT/microservice-kubernetes-demo-order:latest --port=8080
 kubectl expose deployment/order --type="LoadBalancer" --port 8080
-kubectl run hystrix-dashboard --image=docker.io/$DOCKER_ACCOUNT/microservice-kubernetes-demo-hystrix-dashboard:latest --port=8080
-kubectl expose deployment/hystrix-dashboard --type="LoadBalancer" --port 8080

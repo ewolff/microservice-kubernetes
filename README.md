@@ -55,7 +55,6 @@ The microservices are:
 - [microservice-kubernetes-demo-customer](microservice-kubernetes-demo/microservice-kubernetes-demo-customer) is responsible for customers.
 - [microservice-kubernetes-demo-order](microservice-kubernetes-demo/microservice-kubernetes-demo-order) does order processing. It uses
   microservice-kubernetes-demo-catalog and microservice-kubernetes-demo-customer.
-  Hystrix is used for resilience.
 
 The microservices use REST to communicate to each other.
 See e.g. [CatalogClient](microservice-kubernetes-demo/microservice-kubernetes-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java) .
@@ -73,5 +72,4 @@ to verify the stubs. In `microservice-kubernetes-demo-customer` and
 `microserivce-kubernetes-demo-catalog` they are used to verify the implemented
 REST services.
 
-Note that the code has no dependencies on Kubernetes. Only Spring
-Cloud Hystrix is used to add resilience.
+Note that the code has no dependencies on Kubernetes.

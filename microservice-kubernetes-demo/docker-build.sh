@@ -17,8 +17,3 @@ docker push $DOCKER_ACCOUNT/microservice-kubernetes-demo-customer
 docker build --tag=microservice-kubernetes-demo-order microservice-kubernetes-demo-order
 docker tag microservice-kubernetes-demo-order $DOCKER_ACCOUNT/microservice-kubernetes-demo-order:latest
 docker push $DOCKER_ACCOUNT/microservice-kubernetes-demo-order
-
-docker build --tag=microservice-kubernetes-demo-hystrix-dashboard microservice-kubernetes-demo-hystrix-dashboard
-docker tag microservice-kubernetes-demo-hystrix-dashboard $DOCKER_ACCOUNT/microservice-kubernetes-demo-hystrix-dashboard:latest
-docker push $DOCKER_ACCOUNT/microservice-kubernetes-demo-hystrix-dashboard
-

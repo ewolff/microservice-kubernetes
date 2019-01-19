@@ -18,8 +18,6 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
 @Component
 public class CatalogClient {
@@ -33,7 +31,6 @@ public class CatalogClient {
 	private RestTemplate restTemplate;
 	private String catalogServiceHost;
 	private long catalogServicePort;
-	private Collection<Item> itemsCache = null;
 
 	@Autowired
 	public CatalogClient(@Value("${catalog.service.host:catalog}") String catalogServiceHost,
@@ -56,26 +53,13 @@ public class CatalogClient {
 		return new RestTemplate(Collections.<HttpMessageConverter<?>>singletonList(converter));
 	}
 
-	@HystrixCommand(fallbackMethod = "priceCache", commandProperties = {
-			@HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "2") })
 	public double price(long itemId) {
 		return getOne(itemId).getPrice();
 	}
 
-	public double priceCache(long itemId) {
-		return getOneCache(itemId).getPrice();
-	}
-
-	@HystrixCommand(fallbackMethod = "getItemsCache", commandProperties = {
-			@HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "2") })
 	public Collection<Item> findAll() {
 		PagedResources<Item> pagedResources = restTemplate.getForObject(catalogURL(), ItemPagedResources.class);
-		this.itemsCache = pagedResources.getContent();
 		return pagedResources.getContent();
-	}
-
-	private Collection<Item> getItemsCache() {
-		return itemsCache;
 	}
 
 	private String catalogURL() {
@@ -84,13 +68,7 @@ public class CatalogClient {
 		return url;
 	}
 
-	@HystrixCommand(fallbackMethod = "getOneCache", commandProperties = {
-			@HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "2") })
 	public Item getOne(long itemId) {
 		return restTemplate.getForObject(catalogURL() + itemId, Item.class);
-	}
-
-	public Item getOneCache(long itemId) {
-		return itemsCache.stream().filter(i -> (i.getItemId() == itemId)).findFirst().get();
 	}
 }

@@ -45,7 +45,6 @@ package` or `mvnw.cmd clean package` (Windows). This will take a while:
 [INFO] Reactor Summary:
 [INFO] 
 [INFO] microservice-kubernetes-demo ....................... SUCCESS [  0.986 s]
-[INFO] microservice-kubernetes-demo-hystrix-dashboard ..... SUCCESS [  2.494 s]
 [INFO] microservice-kubernetes-demo-customer .............. SUCCESS [ 16.953 s]
 [INFO] microservice-kubernetes-demo-catalog ............... SUCCESS [ 18.016 s]
 [INFO] microservice-kubernetes-demo-order ................. SUCCESS [ 18.512 s]
@@ -99,8 +98,6 @@ ewolff
 ...
 Removing intermediate container 36e9b0c2ac0e
 Successfully built b76261d1e4ee
-Successfully tagged microservice-kubernetes-demo-hystrix-dashboard:latest
-The push refers to a repository [docker.io/ewolff/microservice-kubernetes-demo-hystrix-dashboard]
 f4ffcb9c643d: Pushed 
 14c5bfa09694: Mounted from ewolff/microservice-kubernetes-demo-order 
 41a5c76632fc: Mounted from ewolff/microservice-kubernetes-demo-order 
@@ -144,8 +141,6 @@ deployment "customer" created
 service "customer" exposed
 deployment "order" created
 service "order" exposed
-deployment "hystrix-dashboard" created
-service "hystrix-dashboard" exposed
 ```
 
 An alternative is to use the command `kubectl apply -f
@@ -171,7 +166,6 @@ NAME                CLUSTER-IP   EXTERNAL-IP   PORT(S)          AGE
 apache              10.0.0.90    <pending>     80:31214/TCP     46s
 catalog             10.0.0.219   <pending>     8080:30161/TCP   46s
 customer            10.0.0.163   <pending>     8080:30620/TCP   45s
-hystrix-dashboard   10.0.0.220   <pending>     8080:32076/TCP   44s
 kubernetes          10.0.0.1     <none>        443/TCP          3m
 order               10.0.0.21    <pending>     8080:30616/TCP   45s
 ```
@@ -207,7 +201,6 @@ NAME                                READY     STATUS    RESTARTS   AGE
 apache-3412280829-k5z5p             1/1       Running   0          2m
 catalog-269679894-60dr0             1/1       Running   0          2m
 customer-1984516559-1ffjk           1/1       Running   0          2m
-hystrix-dashboard-859915717-f0sxg   1/1       Running   0          2m
 order-2204540131-nks5s              1/1       Running   0          2m
 ```
 
@@ -288,12 +281,10 @@ service "apache" deleted
 service "catalog" deleted
 service "customer" deleted
 service "order" deleted
-service "hystrix-dashboard" deleted
 deployment "apache" deleted
 deployment "catalog" deleted
 deployment "customer" deleted
 deployment "order" deleted
-deployment "hystrix-dashboard" deleted
 ```
 
 This skript must be executed before a new version of the pods can be deployed.
