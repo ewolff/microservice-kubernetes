@@ -121,7 +121,7 @@ Weitere Information zu Docker gibt es im
 [Docker Cheatsheet](https://github.com/ewolff/cheatsheets-DE/blob/master/DockerCheatSheet.md).
 
 
-## Run the containers
+## Container starten
 
 * Installiere eine Minikube-Instanz mit `minikube start
 --memory=4000`. Die Instanz hat dann
