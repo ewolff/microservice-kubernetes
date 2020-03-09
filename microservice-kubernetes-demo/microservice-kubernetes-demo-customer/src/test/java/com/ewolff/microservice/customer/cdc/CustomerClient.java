@@ -7,8 +7,8 @@ import java.util.Collections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.hateoas.MediaTypes;
-import org.springframework.hateoas.PagedResources;
-import org.springframework.hateoas.hal.Jackson2HalModule;
+import org.springframework.hateoas.PagedModel;
+import org.springframework.hateoas.mediatype.hal.Jackson2HalModule;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -26,7 +26,7 @@ public class CustomerClient {
 	private String customerServiceHost;
 	private long customerServicePort;
 
-	static class CustomerPagedResources extends PagedResources<Customer> {
+	static class CustomerPagedModel extends PagedModel<Customer> {
 
 	}
 
@@ -65,9 +65,9 @@ public class CustomerClient {
 	}
 
 	public Collection<Customer> findAll() {
-		PagedResources<Customer> pagedResources = getRestTemplate().getForObject(customerURL(),
-				CustomerPagedResources.class);
-		return pagedResources.getContent();
+		PagedModel<Customer> pagedModel = getRestTemplate().getForObject(customerURL(),
+				CustomerPagedModel.class);
+		return pagedModel.getContent();
 	}
 
 	private String customerURL() {

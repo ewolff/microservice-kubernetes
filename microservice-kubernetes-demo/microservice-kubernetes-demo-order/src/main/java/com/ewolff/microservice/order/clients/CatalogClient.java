@@ -9,8 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.hateoas.MediaTypes;
-import org.springframework.hateoas.PagedResources;
-import org.springframework.hateoas.hal.Jackson2HalModule;
+import org.springframework.hateoas.PagedModel;
+import org.springframework.hateoas.mediatype.hal.Jackson2HalModule;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Component;
@@ -24,7 +24,7 @@ public class CatalogClient {
 
 	private final Logger log = LoggerFactory.getLogger(CatalogClient.class);
 
-	public static class ItemPagedResources extends PagedResources<Item> {
+	public static class ItemPagedResources extends PagedModel<Item> {
 
 	}
 
@@ -58,7 +58,7 @@ public class CatalogClient {
 	}
 
 	public Collection<Item> findAll() {
-		PagedResources<Item> pagedResources = restTemplate.getForObject(catalogURL(), ItemPagedResources.class);
+		PagedModel<Item> pagedResources = restTemplate.getForObject(catalogURL(), ItemPagedResources.class);
 		return pagedResources.getContent();
 	}
 
