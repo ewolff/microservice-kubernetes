@@ -283,7 +283,16 @@ mnt                                                      var
 / # 
 ```
 
-* Mit `minikube service apache` kannst du die Webseite des Apache
+* Run  to create a
+  proxy to the Apache httpd server on your local machine. Then open
+  `http://localhost:8081` to see the web page of the Apache httpd
+  server in the web browser.
+
+
+* Mit `kubectl port-forward deployment/apache 8081:80` kannst du einen
+ Proxy für den Apache httpd Server auf dem lokalen Rechner
+ erzeugt. Unter `http://localhost:8081` kannst du die Webseite des
+ Apache
  httpd Server im Web-Browser öffnen. Dabei kannst du auch sehen, dass
  dem Service ein Port auf dem virutellen Minikube-Server zugewiesen
  worden ist.

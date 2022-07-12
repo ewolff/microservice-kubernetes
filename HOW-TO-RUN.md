@@ -265,13 +265,10 @@ mnt                                                      var
 / # 
 ```
 
-* Run `minikube service apache` to open the web page of the Apache httpd
-  server in the web browser. Notice how the service was bound to a
-  port on the host Minikube runs on.
-
-The service type is `LoadBalancer`. This should actually connect the
-service to an external load balancer. This does not work on minikube
-so it can only be accessed at a specific port on the minikube host.
+* Run `kubectl port-forward deployment/apache 8081:80` to create a
+  proxy to the Apache httpd server on your local machine. Then open
+  `http://localhost:8081` to see the web page of the Apache httpd
+  server in the web browser.
 
 * To remove all services and deployments run `kubernetes-remove.sh`:
 
